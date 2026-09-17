@@ -61,7 +61,12 @@ export function HeroSection() {
           <p className="hero-context">{messages.hero.context}</p>
           <h1 id="hero-heading">{messages.hero.heading}</h1>
           <div className="hero-section__action">
-            <a className="button button--primary button--large" href={DISCORD_URL}>
+            <a
+              className="button button--primary button--large"
+              href={DISCORD_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {messages.hero.cta}
               <ArrowIcon />
             </a>

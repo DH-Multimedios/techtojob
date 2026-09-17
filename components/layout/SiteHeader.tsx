@@ -54,7 +54,12 @@ export function SiteHeader({ sectionHrefPrefix = "" }: SiteHeaderProps) {
           </ul>
         </nav>
 
-        <a className="header-discord" href={DISCORD_URL}>
+        <a
+          className="header-discord"
+          href={DISCORD_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {messages.navigation.discord}
           <ArrowIcon />
         </a>

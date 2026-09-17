@@ -26,7 +26,12 @@ export function ClosingSection() {
         <p className="eyebrow">{closing.eyebrow}</p>
         <h2 id="closing-heading">{closing.heading}</h2>
         <p>{closing.description}</p>
-        <a className="button button--dark button--large" href={DISCORD_URL}>
+        <a
+          className="button button--dark button--large"
+          href={DISCORD_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {closing.cta}
           <ArrowIcon />
         </a>

@@ -84,7 +84,13 @@ export function MobileNavigation({
             </li>
           ))}
         </ul>
-        <a className="button button--primary" href={discordUrl} onClick={closeMenu}>
+        <a
+          className="button button--primary"
+          href={discordUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={closeMenu}
+        >
           {discordLabel}
         </a>
       </nav>

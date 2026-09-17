@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ArrowIcon } from "@/components/ui/ArrowIcon";
 import { getMessages } from "@/lib/messages";
 import {
+  isExternalHref,
   resolveSectionHref,
   type SectionHrefPrefix,
 } from "@/lib/navigation";
@@ -43,13 +44,22 @@ export function SiteFooter({ sectionHrefPrefix = "" }: SiteFooterProps) {
               <div key={group.title}>
                 <h2>{group.title}</h2>
                 <ul>
-                  {group.links.map((link) => (
-                    <li key={link.href}>
-                      <a href={resolveSectionHref(link.href, sectionHrefPrefix)}>
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
+                  {group.links.map((link) => {
+                    const href = resolveSectionHref(link.href, sectionHrefPrefix);
+                    const isExternal = isExternalHref(href);
+
+                    return (
+                      <li key={link.href}>
+                        <a
+                          href={href}
+                          target={isExternal ? "_blank" : undefined}
+                          rel={isExternal ? "noopener noreferrer" : undefined}
+                        >
+                          {link.label}
+                        </a>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             ))}
@@ -61,7 +71,11 @@ export function SiteFooter({ sectionHrefPrefix = "" }: SiteFooterProps) {
             <ul className="social-links">
               {messages.footer.socialLinks.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {link.label}
                     <ArrowIcon />
                   </a>

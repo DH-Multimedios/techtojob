@@ -5,6 +5,7 @@ import { useEffect, useRef, type CSSProperties } from "react";
 import { testimonials } from "@/content/testimonials";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { getMessages } from "@/lib/messages";
+import { isExternalHref } from "@/lib/navigation";
 
 export function TestimonialsSection() {
   const messages = getMessages();
@@ -69,6 +70,9 @@ export function TestimonialsSection() {
         <div ref={gridRef} className="testimonial-grid">
           {testimonials.map((testimonial, index) => {
             const item = copy.items[testimonial.id];
+            const isExternalProfile = testimonial.profileUrl
+              ? isExternalHref(testimonial.profileUrl)
+              : false;
 
             return (
               <article
@@ -88,6 +92,10 @@ export function TestimonialsSection() {
                     {testimonial.profileUrl ? (
                       <a
                         href={testimonial.profileUrl}
+                        target={isExternalProfile ? "_blank" : undefined}
+                        rel={
+                          isExternalProfile ? "noopener noreferrer" : undefined
+                        }
                         aria-label={`${copy.profileLinkLabel}: ${item.name}`}
                       >
                         {copy.profileLinkLabel}
