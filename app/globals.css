@@ -1960,7 +1960,107 @@ h3 {
 
 /* Networking */
 .section--networking {
+  overflow: hidden;
   background: var(--mint-pale);
+  isolation: isolate;
+}
+
+.section--networking__content {
+  position: relative;
+  z-index: 1;
+}
+
+.networking-ambient {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+}
+
+.networking-ambient__symbol {
+  position: absolute;
+  display: block;
+  aspect-ratio: 1;
+  transform: rotate(var(--networking-static-rotation));
+  transform-origin: center;
+  animation: networking-ambient-drift var(--networking-duration) ease-in-out infinite alternate;
+  animation-delay: var(--networking-delay);
+  will-change: transform;
+}
+
+.networking-ambient__symbol img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.networking-ambient__symbol--gradient {
+  --networking-static-rotation: 16deg;
+  --networking-start-x: -8px;
+  --networking-start-y: -5px;
+  --networking-start-rotation: 14deg;
+  --networking-start-scale: 0.985;
+  --networking-end-x: 10px;
+  --networking-end-y: 9px;
+  --networking-end-rotation: 18deg;
+  --networking-end-scale: 1.015;
+  --networking-duration: 27s;
+  --networking-delay: -9s;
+
+  top: 7rem;
+  right: -9rem;
+  width: clamp(15rem, 64vw, 19rem);
+  opacity: 0.09;
+}
+
+.networking-ambient__symbol--dark {
+  --networking-static-rotation: -11deg;
+  --networking-start-x: 7px;
+  --networking-start-y: 9px;
+  --networking-start-rotation: -13deg;
+  --networking-start-scale: 1.01;
+  --networking-end-x: -9px;
+  --networking-end-y: -8px;
+  --networking-end-rotation: -8deg;
+  --networking-end-scale: 0.99;
+  --networking-duration: 32s;
+  --networking-delay: -19s;
+
+  top: 48%;
+  left: -8.5rem;
+  width: clamp(14rem, 58vw, 18rem);
+  opacity: 0.05;
+}
+
+.networking-ambient__symbol--mint {
+  --networking-static-rotation: 8deg;
+  --networking-start-x: -5px;
+  --networking-start-y: 7px;
+  --networking-start-rotation: 6deg;
+  --networking-start-scale: 0.99;
+  --networking-end-x: 8px;
+  --networking-end-y: -6px;
+  --networking-end-rotation: 10deg;
+  --networking-end-scale: 1.01;
+  --networking-duration: 35s;
+  --networking-delay: -27s;
+
+  right: -5rem;
+  bottom: -5rem;
+  width: clamp(12rem, 50vw, 16rem);
+  opacity: 0.22;
+}
+
+@keyframes networking-ambient-drift {
+  from {
+    transform: translate3d(var(--networking-start-x), var(--networking-start-y), 0)
+      rotate(var(--networking-start-rotation)) scale(var(--networking-start-scale));
+  }
+
+  to {
+    transform: translate3d(var(--networking-end-x), var(--networking-end-y), 0)
+      rotate(var(--networking-end-rotation)) scale(var(--networking-end-scale));
+  }
 }
 
 .network-grid {
@@ -1977,6 +2077,50 @@ h3 {
   border-radius: var(--radius-sm);
   background: rgb(255 255 255 / 0.5);
   transition: background-color 160ms ease, translate 160ms ease;
+}
+
+.network-grid[data-network-state="ready"] article {
+  opacity: 0;
+  transform: translate3d(0, 1rem, 0);
+}
+
+.network-grid[data-network-state="ready"] .network-grid__icon {
+  opacity: 0;
+  transform: rotate(-10deg) scale(0.82);
+}
+
+.network-grid[data-network-state="visible"] article {
+  animation: network-card-reveal 580ms cubic-bezier(0.22, 1, 0.36, 1)
+    calc(70ms + var(--network-card-index) * 90ms) backwards;
+}
+
+.network-grid[data-network-state="visible"] .network-grid__icon {
+  animation: network-icon-reveal 440ms cubic-bezier(0.22, 1, 0.36, 1)
+    calc(180ms + var(--network-card-index) * 90ms) backwards;
+}
+
+@keyframes network-card-reveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 1rem, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes network-icon-reveal {
+  from {
+    opacity: 0;
+    transform: rotate(-10deg) scale(0.82);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .network-grid article:hover {
@@ -2797,6 +2941,24 @@ h3 {
     opacity: 0.12;
   }
 
+  .networking-ambient__symbol--gradient {
+    top: 8rem;
+    right: -6.5rem;
+    width: clamp(18rem, 35vw, 22rem);
+  }
+
+  .networking-ambient__symbol--dark {
+    top: 42%;
+    left: -6rem;
+    width: clamp(17rem, 31vw, 20rem);
+  }
+
+  .networking-ambient__symbol--mint {
+    right: 8%;
+    bottom: -7rem;
+    width: clamp(14rem, 25vw, 18rem);
+  }
+
   .companies-ambient__symbol--mint {
     right: -4rem;
     bottom: -3rem;
@@ -2808,6 +2970,26 @@ h3 {
     top: 38%;
     left: 48%;
     width: clamp(13rem, 15vw, 17rem);
+  }
+
+  .networking-ambient__symbol--gradient {
+    top: 9%;
+    right: -4rem;
+    width: clamp(20rem, 23vw, 24rem);
+    opacity: 0.1;
+  }
+
+  .networking-ambient__symbol--dark {
+    top: 38%;
+    left: -4rem;
+    width: clamp(18rem, 20vw, 22rem);
+    opacity: 0.055;
+  }
+
+  .networking-ambient__symbol--mint {
+    right: 13%;
+    bottom: -8rem;
+    width: clamp(16rem, 18vw, 20rem);
   }
 
   .hero-section__intro h1 {
@@ -2953,6 +3135,11 @@ h3 {
     animation: none !important;
   }
 
+  .networking-ambient__symbol {
+    transform: rotate(var(--networking-static-rotation));
+    animation: none !important;
+  }
+
   .section--how[data-steps-state] .steps-grid li,
   .section--how[data-steps-state] .step-number {
     opacity: 1;
@@ -2980,6 +3167,13 @@ h3 {
 
   .tournament-flow[data-flow-state] li,
   .tournament-flow[data-flow-state] li > span {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
+  }
+
+  .network-grid[data-network-state] article,
+  .network-grid[data-network-state] .network-grid__icon {
     opacity: 1;
     transform: none;
     animation: none !important;
