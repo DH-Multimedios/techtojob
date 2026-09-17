@@ -1520,6 +1520,82 @@ h3 {
   font-weight: 700;
 }
 
+.profile-composition[data-profile-state="ready"] {
+  opacity: 0;
+  transform: translate3d(0, 1rem, 0) scale(0.985);
+}
+
+.profile-composition[data-profile-state="ready"]
+  :is(.profile-composition__header, dl > div),
+.profile-composition[data-profile-state="ready"] > p {
+  opacity: 0;
+  transform: translate3d(0, 0.65rem, 0);
+}
+
+.profile-composition[data-profile-state="ready"] dd span {
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.profile-composition[data-profile-state="visible"] {
+  animation: profile-card-reveal 560ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+.profile-composition[data-profile-state="visible"] .profile-composition__header {
+  animation: profile-detail-reveal 480ms cubic-bezier(0.22, 1, 0.36, 1) 160ms
+    backwards;
+}
+
+.profile-composition[data-profile-state="visible"] dl > div {
+  animation: profile-detail-reveal 460ms cubic-bezier(0.22, 1, 0.36, 1)
+    calc(300ms + var(--profile-row-index) * 100ms) backwards;
+}
+
+.profile-composition[data-profile-state="visible"] dd span {
+  animation: profile-bar-fill 520ms cubic-bezier(0.22, 1, 0.36, 1)
+    calc(390ms + var(--profile-row-index) * 100ms) backwards;
+  transform-origin: left;
+}
+
+.profile-composition[data-profile-state="visible"] > p {
+  animation: profile-detail-reveal 500ms cubic-bezier(0.22, 1, 0.36, 1) 780ms
+    backwards;
+}
+
+@keyframes profile-card-reveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 1rem, 0) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes profile-detail-reveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.65rem, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes profile-bar-fill {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
 .audience-section--dark {
   background: var(--ink);
   color: var(--paper);
@@ -2611,6 +2687,15 @@ h3 {
 
   .section--how[data-steps-state] .steps-grid li,
   .section--how[data-steps-state] .step-number {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
+  }
+
+  .profile-composition[data-profile-state],
+  .profile-composition[data-profile-state]
+    :is(.profile-composition__header, dl > div, dd span),
+  .profile-composition[data-profile-state] > p {
     opacity: 1;
     transform: none;
     animation: none !important;

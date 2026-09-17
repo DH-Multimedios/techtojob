@@ -1,9 +1,57 @@
+"use client";
+
+import { useEffect, useRef, type CSSProperties } from "react";
+
 import { ArrowIcon } from "@/components/ui/ArrowIcon";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { getMessages } from "@/lib/messages";
 
 export function TalentSection() {
   const { talent } = getMessages();
+  const profileRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const profile = profileRef.current;
+
+    if (!profile || !("IntersectionObserver" in window)) {
+      return;
+    }
+
+    const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    if (motionPreference.matches) {
+      return;
+    }
+
+    profile.dataset.profileState = "ready";
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        profile.dataset.profileState = "visible";
+        observer.disconnect();
+      },
+      { rootMargin: "0px 0px -8%", threshold: 0.18 },
+    );
+
+    const revealWithoutMotion = (event: MediaQueryListEvent) => {
+      if (event.matches) {
+        profile.dataset.profileState = "visible";
+        observer.disconnect();
+      }
+    };
+
+    motionPreference.addEventListener("change", revealWithoutMotion);
+    observer.observe(profile);
+
+    return () => {
+      motionPreference.removeEventListener("change", revealWithoutMotion);
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <section id="talento" className="section audience-section" aria-labelledby="talent-heading">
@@ -32,14 +80,21 @@ export function TalentSection() {
           </a>
         </div>
 
-        <div className="profile-composition" aria-label={talent.profileLabel}>
+        <div
+          ref={profileRef}
+          className="profile-composition"
+          aria-label={talent.profileLabel}
+        >
           <div className="profile-composition__header">
             <span className="profile-composition__avatar" aria-hidden="true" />
             <strong>{talent.profileLabel}</strong>
           </div>
           <dl>
             {talent.profileFields.map((field, index) => (
-              <div key={field}>
+              <div
+                key={field}
+                style={{ "--profile-row-index": index } as CSSProperties}
+              >
                 <dt>{field}</dt>
                 <dd aria-hidden="true">
                   <span style={{ width: `${76 - index * 12}%` }} />
