@@ -106,6 +106,8 @@ The linked JavaScript is primarily Next.js, React, router/runtime, and framework
 | `public/brand/logo-mint.svg` | `docs/identity/v1Negativo.svg` | Official TechToJob asset supplied with the brief | Exact copy; normalized filename only | Footer on dark surfaces |
 | `public/brand/symbol-dark.svg` | `docs/identity/SímboloPositivo.svg` | Official TechToJob asset supplied with the brief | Exact copy; normalized filename only | Favicon and compositions |
 | `public/brand/symbol-mint.svg` | `docs/identity/SímboloNegativo.svg` | Official TechToJob asset supplied with the brief | Exact copy; normalized filename only | Dark-surface compositions |
+| `public/brand/symbol-black.svg` | `docs/identity/SímboloBlack .svg` | Official TechToJob asset supplied with the brief | Exact copy; normalized filename only | Subtle hero ambient layer |
+| `public/brand/symbol-gradient.svg` | `docs/identity/SímboloDegradado.svg` | Official TechToJob asset supplied with the brief | Exact copy; normalized filename only | Focal hero ambient layer |
 | `public/social/techtojob-social.png` | Local composition generated from `messages/es.json` and `symbol-mint.svg` | Project-owned composition using the official identity | Rasterized locally to 1200 × 630 | Open Graph and Twitter Card |
 | Sora | Google Fonts via `next/font/google` | Sora Project Authors; SIL Open Font License 1.1 | Self-hosted by Next.js at build time | Site typography |
 
