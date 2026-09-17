@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { HeroTabs } from "@/components/interactive/HeroTabs";
+import { AudienceRadialMenu } from "@/components/interactive/AudienceRadialMenu";
 import { ArrowIcon } from "@/components/ui/ArrowIcon";
 import { BrandCurve } from "@/components/ui/BrandCurve";
 import { getMessages } from "@/lib/messages";
@@ -70,8 +70,8 @@ export function HeroSection() {
         </div>
 
         <div className="hero-section__experience">
-          <HeroTabs
-            tablistLabel={messages.hero.tablistLabel}
+          <AudienceRadialMenu
+            ariaLabel={messages.hero.tablistLabel}
             labels={messages.hero.tabs}
             panels={messages.hero.panels}
           />
