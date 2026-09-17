@@ -1898,6 +1898,50 @@ h3 {
   font-weight: 700;
 }
 
+.tournament-flow[data-flow-state="ready"] li {
+  opacity: 0;
+  transform: translate3d(0, 0.8rem, 0);
+}
+
+.tournament-flow[data-flow-state="ready"] li > span {
+  opacity: 0;
+  transform: translate3d(0, 0.2rem, 0) scale(0.94);
+}
+
+.tournament-flow[data-flow-state="visible"] li {
+  animation: tournament-step-reveal 540ms cubic-bezier(0.22, 1, 0.36, 1)
+    var(--tournament-step-delay) backwards;
+}
+
+.tournament-flow[data-flow-state="visible"] li > span {
+  animation: tournament-number-reveal 420ms cubic-bezier(0.22, 1, 0.36, 1)
+    calc(var(--tournament-step-delay) + 110ms) backwards;
+}
+
+@keyframes tournament-step-reveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.8rem, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes tournament-number-reveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.2rem, 0) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .tournament-flow p {
   margin: 0;
   color: var(--ink-soft);
@@ -2929,6 +2973,13 @@ h3 {
   .signal-composition[data-signal-state] > p,
   .signal-composition[data-signal-state] li,
   .signal-composition[data-signal-state] .signal-composition__marker {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
+  }
+
+  .tournament-flow[data-flow-state] li,
+  .tournament-flow[data-flow-state] li > span {
     opacity: 1;
     transform: none;
     animation: none !important;
