@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { newsItems } from "@/content/news";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { getMessages } from "@/lib/messages";
@@ -24,9 +26,26 @@ export function NewsSection() {
             return (
               <article className="news-card" key={newsItem.id}>
                 <div className={`news-card__visual news-card__visual--${newsItem.accent}`} aria-hidden="true">
-                  <span />
-                  <span />
-                  <span />
+                  {newsItem.accent === "steps" ? (
+                    <>
+                      <span />
+                      <span />
+                      <span />
+                    </>
+                  ) : (
+                    <Image
+                      src={
+                        newsItem.accent === "curve"
+                          ? "/brand/symbol-gradient.svg"
+                          : "/brand/symbol-dark.svg"
+                      }
+                      width={288}
+                      height={288}
+                      alt=""
+                      loading="lazy"
+                      unoptimized
+                    />
+                  )}
                 </div>
                 <div className="news-card__body">
                   <span className="sample-badge sample-badge--dark">{news.sampleLabel}</span>

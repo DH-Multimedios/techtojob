@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { getMessages } from "@/lib/messages";
 
@@ -22,9 +24,18 @@ export function NetworkingSection() {
           {networking.items.map((item, index) => (
             <article key={item.title}>
               <span className="network-grid__icon" aria-hidden="true">
-                <span />
-                <span />
-                <span />
+                <Image
+                  src={
+                    index % 2 === 0
+                      ? "/brand/symbol-gradient.svg"
+                      : "/brand/symbol-dark.svg"
+                  }
+                  width={80}
+                  height={80}
+                  alt=""
+                  loading="lazy"
+                  unoptimized
+                />
               </span>
               <span className="network-grid__number" aria-hidden="true">
                 {String(index + 1).padStart(2, "0")}

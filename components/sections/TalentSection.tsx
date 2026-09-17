@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, type CSSProperties } from "react";
 
 import { ArrowIcon } from "@/components/ui/ArrowIcon";
@@ -85,6 +86,16 @@ export function TalentSection() {
           className="profile-composition"
           aria-label={talent.profileLabel}
         >
+          <div className="profile-composition__symbol" aria-hidden="true">
+            <Image
+              src="/brand/symbol-gradient.svg"
+              width={288}
+              height={288}
+              alt=""
+              loading="lazy"
+              unoptimized
+            />
+          </div>
           <div className="profile-composition__header">
             <span className="profile-composition__avatar" aria-hidden="true" />
             <strong>{talent.profileLabel}</strong>
