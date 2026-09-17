@@ -1,0 +1,25 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# local environment files
+.env*
+!.env.example
+
+# logs and tooling
+*.log
+.DS_Store
+.codegraph/
+.atl/
+.playwright-mcp/
+*.tsbuildinfo
+next-env.d.ts
+
+# planning and source material
+docs/

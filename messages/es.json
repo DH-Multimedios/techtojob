@@ -1,0 +1,218 @@
+{
+  "site": {
+    "name": "TechToJob",
+    "logoAlt": "TechToJob",
+    "brandHomeLabel": "TechToJob, inicio"
+  },
+  "navigation": {
+    "skipLink": "Saltar al contenido",
+    "ariaLabel": "Navegación principal",
+    "mobileAriaLabel": "Navegación móvil",
+    "openMenu": "Abrir navegación",
+    "closeMenu": "Cerrar navegación",
+    "links": [
+      { "label": "Cómo funciona", "href": "#como-funciona" },
+      { "label": "Talento", "href": "#talento" },
+      { "label": "Empresas", "href": "#empresas" },
+      { "label": "Torneos", "href": "#torneos" },
+      { "label": "Comunidad", "href": "#networking" },
+      { "label": "Noticias", "href": "#noticias" }
+    ],
+    "discord": "Discord"
+  },
+  "hero": {
+    "context": "Comunidad de desarrolladores y empresas tech en español.",
+    "heading": "Haz que te conozcan por lo que sabes construir.",
+    "tablistLabel": "Elige tu recorrido",
+    "tabs": {
+      "talent": "Talento",
+      "companies": "Empresas"
+    },
+    "panels": {
+      "talent": {
+        "description": "Participa, crea y comparte tu trabajo. Aquí no eres otra candidatura en una lista: la comunidad puede conocerte por lo que haces y por cómo colaboras.",
+        "items": [
+          { "title": "Muestra tu perfil", "description": "Comparte stack, nivel y disponibilidad." },
+          { "title": "Construye en público", "description": "Convierte retos y aportes en experiencia que puedes enseñar." },
+          { "title": "Gana contexto humano", "description": "Habla con personas del sector antes de que exista una vacante." }
+        ]
+      },
+      "companies": {
+        "description": "Descubre talento con más contexto que un currículum. Consulta perfiles, observa cómo participa cada persona y publica lo que necesitas dentro de la comunidad.",
+        "items": [
+          { "title": "Consulta perfiles", "description": "Revisa stack, nivel y disponibilidad sin depender de una criba automática." },
+          { "title": "Mira el trabajo", "description": "Conoce entregas, aportes y formas de colaborar." },
+          { "title": "Explica lo que buscas", "description": "Comparte una necesidad con personas que ya están participando." }
+        ]
+      }
+    },
+    "cta": "Entrar al Discord",
+    "support": "Únete, explora los canales y empieza a participar a tu ritmo."
+  },
+  "positioning": {
+    "eyebrow": "Una comunidad, no otra lista",
+    "heading": "No necesitas otra lista donde dejar tu CV.",
+    "description": "Mandas muchas candidaturas y no recibes respuesta. Si estás empezando, encuentras puestos junior que piden una experiencia que aún no has tenido la oportunidad de ganar. En una lista, tu perfil puede perderse antes de que alguien vea lo que sabes hacer. TechToJob cambia el punto de partida: participas, construyes con otras personas y generas contexto antes de que aparezca una oportunidad.",
+    "fromLabel": "Antes",
+    "toLabel": "Aquí",
+    "pairs": [
+      { "from": "Enviar y esperar", "to": "Participar y ser visible" },
+      { "from": "Un CV aislado", "to": "Trabajo, conversación y contexto" },
+      { "from": "Filtros antes que personas", "to": "Personas que pueden conocerte" }
+    ],
+    "note": "Participar como talento no tiene coste."
+  },
+  "howItWorks": {
+    "eyebrow": "Cómo funciona",
+    "heading": "Empieza por participar. Lo demás toma contexto.",
+    "steps": [
+      { "title": "Entra y encuentra tu espacio.", "description": "Explora canales por áreas, presentaciones y conversaciones activas." },
+      { "title": "Cuenta qué haces.", "description": "Comparte tu stack, nivel, disponibilidad y aquello que quieres aprender o construir." },
+      { "title": "Participa de forma visible.", "description": "Resuelve dudas, colabora y presenta entregas en los torneos." },
+      { "title": "Deja que surjan conversaciones.", "description": "Talento y empresas pueden encontrarse con más información que un formulario." }
+    ],
+    "support": "No tienes que completar un proceso interminable para empezar."
+  },
+  "talent": {
+    "eyebrow": "Para talento",
+    "heading": "Tu nivel no borra lo que puedes aportar.",
+    "description": "Publica un perfil con tu stack, nivel y disponibilidad. Las empresas pueden consultarlo sin que un filtro automático decida primero si mereces ser leído.",
+    "benefits": [
+      { "title": "Un perfil con contexto.", "description": "Explica qué sabes y qué buscas ahora." },
+      { "title": "Espacio para empezar.", "description": "No necesitas ser senior para participar." },
+      { "title": "Sin coste para el talento.", "description": "Entra, comparte y aprende sin pagar por aparecer." }
+    ],
+    "cta": "Ver cómo participar",
+    "profileLabel": "Tu perfil",
+    "profileFields": ["Stack", "Nivel", "Disponibilidad"],
+    "profileNote": "Primero una persona. Después, un currículum."
+  },
+  "companies": {
+    "eyebrow": "Para empresas",
+    "heading": "Conoce a la persona antes de reducirla a un CV.",
+    "description": "Publica lo que buscas y consulta perfiles disponibles. La actividad dentro de la comunidad aporta señales de trabajo, comunicación e intereses que una candidatura aislada no muestra.",
+    "benefits": [
+      { "title": "Más contexto inicial.", "description": "Revisa perfiles junto con aportes y entregas disponibles." },
+      { "title": "Necesidades claras.", "description": "Explica qué buscas sin disfrazarlo de lenguaje corporativo." },
+      { "title": "Conversaciones mejor informadas.", "description": "Reduce la dependencia de una primera criba basada solo en currículums." }
+    ],
+    "cta": "Conocer la comunidad",
+    "signalLabel": "Señales con contexto",
+    "signals": ["Perfil", "Aportes", "Entregas", "Conversación"]
+  },
+  "tournaments": {
+    "eyebrow": "Torneos",
+    "heading": "Construye algo que puedas enseñar.",
+    "description": "Cada torneo parte de un reto, recibe entregas y se evalúa con criterios públicos y un jurado. El objetivo no es prometer empleo. Es aprender, terminar una pieza útil y hacer visible tu forma de trabajar.",
+    "steps": [
+      { "title": "Reto", "description": "Un problema concreto." },
+      { "title": "Entrega", "description": "Una solución que puedes presentar." },
+      { "title": "Criterios públicos", "description": "Expectativas visibles desde el inicio." },
+      { "title": "Resultado útil", "description": "Trabajo real para tu aprendizaje y portafolio." }
+    ],
+    "evidence": "Esta landing nace como propuesta para uno de esos torneos."
+  },
+  "networking": {
+    "eyebrow": "Networking",
+    "heading": "Las oportunidades también llegan por las conversaciones.",
+    "description": "Entra en canales por área, pregunta a gente del sector y comparte lo que sabes. Los canales hacen más fácil resolver dudas con rapidez cuando alguien puede aportar contexto. Algunas oportunidades circulan por personas que conocen directamente a quien busca talento.",
+    "items": [
+      { "title": "Canales por especialidad", "description": "Encuentra conversaciones relevantes para tu área." },
+      { "title": "Dudas con contexto", "description": "Pregunta y resuelve dudas con rapidez cuando alguien pueda ayudar, sin convertir cada interacción en una candidatura." },
+      { "title": "Personas del sector", "description": "Conoce a quienes construyen, aprenden y contratan." },
+      { "title": "Oportunidades compartidas", "description": "Entérate a través de conexiones reales, sin promesas de resultados." }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Voces de la comunidad",
+    "heading": "Lo que cuente la comunidad irá aquí.",
+    "transparency": "Estas tarjetas son provisionales para mostrar la estructura de la V1. Antes de publicar, se sustituirán por testimonios reales, autorizados y verificables.",
+    "sampleLabel": "Muestra provisional",
+    "profileLinkLabel": "Ver perfil verificado",
+    "items": {
+      "pending-01": { "name": "Testimonio pendiente 01", "quote": "Contenido pendiente de una persona real de la comunidad.", "profile": "Perfil pendiente" },
+      "pending-02": { "name": "Testimonio pendiente 02", "quote": "Contenido pendiente de una persona real de la comunidad.", "profile": "Perfil pendiente" },
+      "pending-03": { "name": "Testimonio pendiente 03", "quote": "Contenido pendiente de una persona real de la comunidad.", "profile": "Perfil pendiente" },
+      "pending-04": { "name": "Testimonio pendiente 04", "quote": "Contenido pendiente de una persona real de la comunidad.", "profile": "Perfil pendiente" }
+    }
+  },
+  "news": {
+    "eyebrow": "Noticias",
+    "heading": "Novedades para seguir lo que se mueve.",
+    "transparency": "Entradas de muestra para definir la estructura editorial. No representan publicaciones ya realizadas.",
+    "sampleLabel": "Muestra editorial",
+    "items": {
+      "community-guide": { "category": "Comunidad", "date": "Fecha de ejemplo: 10 de septiembre de 2026", "title": "Una guía para empezar a participar", "summary": "Qué compartir al presentarte y cómo encontrar conversaciones útiles desde el primer día." },
+      "tournament-piece": { "category": "Torneos", "date": "Fecha de ejemplo: 12 de septiembre de 2026", "title": "Del reto a una pieza que puedes mostrar", "summary": "Un recorrido editorial por la entrega, los criterios públicos y el aprendizaje obtenido." },
+      "beyond-cv": { "category": "Sector tech", "date": "Fecha de ejemplo: 14 de septiembre de 2026", "title": "Qué aporta el contexto más allá del CV", "summary": "Preguntas para comprender mejor experiencia, colaboración y capacidad de aprendizaje." }
+    }
+  },
+  "newsletter": {
+    "eyebrow": "Newsletter demostrativa",
+    "heading": "Una selección breve para seguir conectado.",
+    "value": "Recibe novedades de la comunidad, próximos torneos y temas útiles del sector tech.",
+    "frequencyLabel": "Frecuencia",
+    "frequency": "Un correo al mes.",
+    "promiseLabel": "Compromiso",
+    "promise": "Sin spam. Solo una selección mensual y una forma clara de dejar de recibirla cuando exista el servicio real.",
+    "privacy": "Esta demostración funciona solo en tu navegador. No envía ni guarda datos.",
+    "noScript": "La demostración está inactiva sin JavaScript. No se enviará ni guardará ningún dato.",
+    "emailLabel": "Correo electrónico",
+    "emailHelp": "Ejemplo: nombre@dominio.com",
+    "submit": "Quiero recibir la selección mensual",
+    "emptyError": "Escribe tu correo electrónico.",
+    "formatError": "Revisa el formato del correo.",
+    "success": "Demostración completada. Tu correo no se guardó, no se envió y no se utilizó.",
+    "reset": "Probar con otro correo"
+  },
+  "closing": {
+    "eyebrow": "Tu próximo paso",
+    "heading": "Deja de ser una candidatura sin contexto.",
+    "description": "Entra, comparte lo que haces y conoce a las personas con las que podrías aprender, construir o trabajar.",
+    "cta": "Entrar a la comunidad en Discord",
+    "support": "No prometemos un trabajo. Te damos un lugar para participar y ser conocido por tu trabajo."
+  },
+  "footer": {
+    "description": "Una comunidad para aprender, construir y conocerse con más contexto.",
+    "navigationLabel": "Navegación del pie",
+    "groups": {
+      "talent": { "title": "Talento", "links": [{ "label": "Cómo funciona", "href": "#como-funciona" }, { "label": "Talento", "href": "#talento" }, { "label": "Torneos", "href": "#torneos" }] },
+      "companies": { "title": "Empresas", "links": [{ "label": "Empresas", "href": "#empresas" }] },
+      "community": { "title": "Comunidad", "links": [{ "label": "Networking", "href": "#networking" }, { "label": "Noticias", "href": "#noticias" }, { "label": "Discord", "href": "https://discord.gg/h9FFgKdkRd" }] },
+      "legal": { "title": "Legal", "links": [{ "label": "Aviso legal", "href": "/aviso-legal" }] }
+    },
+    "socialLabel": "Redes oficiales",
+    "socialLinks": [
+      { "label": "LinkedIn", "href": "https://www.linkedin.com/company/techtojob/" },
+      { "label": "X", "href": "https://x.com/techtojob" },
+      { "label": "Instagram", "href": "https://www.instagram.com/techtojob" },
+      { "label": "Discord", "href": "https://discord.gg/h9FFgKdkRd" }
+    ],
+    "legalText": "© TechToJob. Datos legales pendientes de confirmación oficial."
+  },
+  "legal": {
+    "eyebrow": "Información legal",
+    "heading": "Aviso legal pendiente de datos oficiales.",
+    "status": "Contenido provisional — no constituye un aviso legal definitivo.",
+    "intro": "TechToJob todavía debe proporcionar y revisar la información necesaria para publicar este aviso legal. No se incluyen nombres, domicilios, identificadores fiscales ni datos de contacto inventados.",
+    "missingHeading": "Información necesaria antes de publicar",
+    "missingItems": [
+      "Identidad y datos del titular responsable del sitio.",
+      "Domicilio y datos de contacto legales verificados.",
+      "Identificación registral o fiscal cuando corresponda.",
+      "Condiciones de uso y jurisdicción revisadas por la organización."
+    ],
+    "privacyHeading": "Privacidad en esta V1",
+    "privacy": "Esta versión no utiliza analítica, píxeles, cookies ni almacenamiento para el newsletter. Los enlaces a Discord y redes sociales son navegaciones explícitas a servicios externos.",
+    "publication": "Esta ruta debe revisarse y completarse con datos oficiales antes de publicar la web como sitio definitivo.",
+    "back": "Volver al inicio"
+  },
+  "metadata": {
+    "title": "TechToJob | Comunidad tech donde tu talento se ve de verdad",
+    "titleTemplate": "%s | TechToJob",
+    "description": "Participa en una comunidad tech en español, muestra lo que sabes hacer, aprende en retos y conecta con personas y empresas dentro de Discord, con más contexto.",
+    "legalTitle": "Aviso legal pendiente | TechToJob",
+    "legalDescription": "Estado provisional del aviso legal de TechToJob y datos oficiales necesarios antes de su publicación.",
+    "socialImageAlt": "TechToJob, comunidad de desarrolladores y empresas tech en español"
+  }
+}
