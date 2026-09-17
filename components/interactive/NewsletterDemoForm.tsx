@@ -2,6 +2,8 @@
 
 import { useRef, useState, type KeyboardEvent } from "react";
 
+import { ArrowIcon } from "@/components/ui/ArrowIcon";
+
 type NewsletterDemoFormProps = {
   emailLabel: string;
   emailHelp: string;
@@ -101,11 +103,13 @@ export function NewsletterDemoForm({
           }}
         />
         <button
-          className="button button--dark"
+          className="button button--dark newsletter-form__submit"
           type="button"
+          aria-label={submitLabel}
+          title={submitLabel}
           onClick={activateDemo}
         >
-          {submitLabel}
+          <ArrowIcon />
         </button>
       </div>
       <p id="newsletter-email-help" className="form-help">

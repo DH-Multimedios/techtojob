@@ -148,9 +148,9 @@
     }
   },
   "newsletter": {
-    "eyebrow": "Newsletter demostrativa",
-    "heading": "Una selección breve para seguir conectado.",
-    "value": "Recibe novedades de la comunidad, próximos torneos y temas útiles del sector tech.",
+    "eyebrow": "Newsletter mensual",
+    "heading": "Información útil para avanzar en tech.",
+    "value": "Una selección breve de recursos, conversaciones y novedades de la comunidad, pensada para ayudarte a aprender, conectar y construir.",
     "frequencyLabel": "Frecuencia",
     "frequency": "Un correo al mes.",
     "promiseLabel": "Compromiso",
