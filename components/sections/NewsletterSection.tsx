@@ -26,6 +26,11 @@ export function NewsletterSection() {
           <NewsletterDemoForm
             emailLabel={newsletter.emailLabel}
             emailHelp={newsletter.emailHelp}
+            frequencyLegend={newsletter.frequencyLegend}
+            frequencyOptions={newsletter.frequencyOptions}
+            interestsLegend={newsletter.interestsLegend}
+            interestsHelp={newsletter.interestsHelp}
+            interestOptions={newsletter.interestOptions}
             submitLabel={newsletter.submit}
             emptyError={newsletter.emptyError}
             formatError={newsletter.formatError}

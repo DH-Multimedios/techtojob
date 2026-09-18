@@ -149,21 +149,34 @@
     }
   },
   "newsletter": {
-    "eyebrow": "Newsletter mensual",
+    "eyebrow": "Newsletter",
     "heading": "Información útil para avanzar en tech.",
     "value": "Una selección breve de recursos, conversaciones y novedades de la comunidad, pensada para ayudarte a aprender, conectar y construir.",
     "frequencyLabel": "Frecuencia",
-    "frequency": "Un correo al mes.",
+    "frequency": "Mensual o semanal, según prefieras.",
     "promiseLabel": "Compromiso",
-    "promise": "Sin spam. Solo una selección mensual y una forma clara de dejar de recibirla cuando exista el servicio real.",
+    "promise": "Sin spam. Solo contenido de la comunidad y una forma clara de dejar de recibirlo cuando exista el servicio real.",
     "privacy": "Esta demostración funciona solo en tu navegador. No envía ni guarda datos.",
     "noScript": "La demostración está inactiva sin JavaScript. No se enviará ni guardará ningún dato.",
     "emailLabel": "Correo electrónico",
     "emailHelp": "Ejemplo: nombre@dominio.com",
-    "submit": "Quiero recibir la selección mensual",
+    "frequencyLegend": "Frecuencia",
+    "frequencyOptions": [
+      { "value": "monthly", "label": "Mensual" },
+      { "value": "weekly", "label": "Semanal" }
+    ],
+    "interestsLegend": "Temas que te interesan",
+    "interestsHelp": "Opcional. Elige todos los que quieras.",
+    "interestOptions": [
+      { "value": "tournaments", "label": "Torneos" },
+      { "value": "learning", "label": "Recursos y aprendizaje" },
+      { "value": "opportunities", "label": "Networking y oportunidades" },
+      { "value": "community-news", "label": "Novedades de la comunidad" }
+    ],
+    "submit": "Recibir novedades",
     "emptyError": "Escribe tu correo electrónico.",
     "formatError": "Revisa el formato del correo.",
-    "success": "Demostración completada. Tu correo no se guardó, no se envió y no se utilizó.",
+    "success": "Demostración completada. Tu correo y tus preferencias no se guardaron, no se enviaron y no se utilizaron.",
     "reset": "Probar con otro correo"
   },
   "closing": {
