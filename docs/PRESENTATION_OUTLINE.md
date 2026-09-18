@@ -87,14 +87,14 @@ Tres límites gestionan interacción y foco: audiencia del hero, navegación mó
 
 - Landmarks, un H1, jerarquía de headings, foco visible y objetivos táctiles.
 - Skip links con destino de foco correcto en inicio y aviso legal.
-- Newsletter con etiqueta, ayuda, errores y estado de éxito enfocado.
+- Newsletter con etiqueta, ayuda, frecuencia mensual predeterminada o semanal, cuatro intereses opcionales y estado de éxito enfocado.
 - Sin analítica, cookies, almacenamiento, logs ni peticiones de newsletter.
 - Canonical, Open Graph/Twitter, JSON-LD, sitemap y robots.
 
 **Demostración**
 
 1. Activar “Saltar al contenido” y comprobar el foco en `main`.
-2. Mostrar el botón visible “Quiero recibir la selección mensual”.
+2. Mostrar el botón compacto “Recibir novedades”, la frecuencia mensual seleccionada, la alternativa semanal y los cuatro intereses opcionales.
 3. Completar la demostración y mostrar el foco en el estado de éxito.
 4. Reiniciar y comprobar que el foco vuelve al campo vacío.
 
@@ -108,24 +108,25 @@ Sin JavaScript no existe un formulario nativo, una acción ni un campo serializa
 
 | Auditoría de producción — 18 de septiembre de 2026 UTC | Resultado observado |
 |---|---|
+| Marca de tiempo | `2026-09-18T01:42:06Z` |
 | URL desplegada | <https://techtojob-xi.vercel.app/> |
 | Repositorio público | <https://github.com/DH-Multimedios/techtojob> |
-| Lighthouse 13.4.1 móvil | Rendimiento 98 · Accesibilidad 100 · Buenas prácticas 100 · SEO 100. |
-| Métricas principales | FCP 1,0 s · LCP 2,0 s · Speed Index 3,8 s · TBT 42 ms (40 ms mostrado) · CLS 0 · TTI 2,0 s · respuesta del servidor 58 ms. |
+| Lighthouse 13.4.1 móvil | Rendimiento 100 · Accesibilidad 100 · Buenas prácticas 100 · SEO 100. |
+| Métricas principales | FCP 973,016 ms (1,0 s) · LCP 1723,016 ms (1,7 s) · Speed Index 1024,1227239982422 ms (1,0 s) · TBT 7 ms (10 ms mostrado) · CLS 0 · TTI 1840,716 ms (1,8 s). |
 | Responsive | Correcto en 1440 × 1000, 768 × 1024 y 390 × 844 píxeles CSS, sin desbordamiento horizontal. |
+| Newsletter desplegada | “Recibir novedades”, mensual predeterminada, alternativa semanal y cuatro intereses opcionales. |
 | Interacción y privacidad | Teclado, foco, newsletter sin JavaScript, reservas testimoniales y movimiento reducido correctos. |
-| Consola y red aisladas | Sin errores, advertencias, peticiones fallidas ni respuestas HTTP ≥ 400. |
+| Consola | Cero errores observados durante navegación, capturas y Lighthouse. |
 
 **Capturas conservadas**
 
-- [Producción en escritorio](evidence/production-2026-09-17/desktop.png)
-- [Producción en móvil](evidence/production-2026-09-17/mobile.png)
-- [Resumen Lighthouse móvil](evidence/production-2026-09-17/lighthouse-mobile.png)
-- [Registro completo de evidencia](evidence/production-2026-09-17/README.md)
+- [Producción en escritorio](https://techtojob-xi.vercel.app/evidence/desktop.png)
+- [Producción en móvil](https://techtojob-xi.vercel.app/evidence/mobile.png)
+- [Resumen Lighthouse móvil](https://techtojob-xi.vercel.app/evidence/lighthouse-mobile.png)
 
 **Mensaje del presentador**
 
-Estos resultados corresponden a la URL desplegada, no al servidor local. La auditoría tuvo resultado **aprobado con observaciones no bloqueantes**. LinkedIn respondió con estado 999 por protección frente a automatización, lo que no demuestra un destino roto. Dos textos auxiliares calcularon aproximadamente 11,5156 píxeles CSS; Lighthouse obtuvo 100 en accesibilidad y no se demostró un bloqueo normativo, pero la legibilidad aún debe validarse en un dispositivo físico.
+Estos resultados corresponden a la URL desplegada, no al servidor local. La auditoría tuvo resultado **aprobado**. Lighthouse es una medición sintética puntual y sus tiempos pueden variar; la automatización no sustituye las pruebas en dispositivo físico, lector de pantalla ni zoom/reflow al 200 %.
 
 ## 9. Presupuesto JavaScript: estado honesto
 
@@ -159,14 +160,14 @@ La implementación no atribuye testimonios, personas, empresas, métricas, datos
 
 - Sitio en vivo: <https://techtojob-xi.vercel.app/>
 - Repositorio público: <https://github.com/DH-Multimedios/techtojob>
-- Evidencia: [escritorio](evidence/production-2026-09-17/desktop.png), [móvil](evidence/production-2026-09-17/mobile.png) y [Lighthouse](evidence/production-2026-09-17/lighthouse-mobile.png).
+- Evidencia: [escritorio](https://techtojob-xi.vercel.app/evidence/desktop.png), [móvil](https://techtojob-xi.vercel.app/evidence/mobile.png) y [Lighthouse](https://techtojob-xi.vercel.app/evidence/lighthouse-mobile.png).
 
 **Recorrido de demostración**
 
 1. Hero y selector de audiencia.
 2. Secciones de talento, empresas, torneos y networking.
 3. Cuatro reservas de foto y perfil en testimonios.
-4. Newsletter: validación, éxito, reinicio y privacidad.
+4. Newsletter: mensual predeterminada, alternativa semanal, intereses opcionales, validación, éxito, reinicio y privacidad.
 5. Navegación móvil, teclado y movimiento reducido.
 6. Metadata, sitemap, robots y aviso legal provisional.
 
@@ -174,8 +175,8 @@ La implementación no atribuye testimonios, personas, empresas, métricas, datos
 
 - Sitio desplegado y accesible mediante HTTPS.
 - Repositorio público disponible.
-- Capturas de escritorio y móvil conservadas en el repositorio.
-- Lighthouse móvil de producción conservado con puntuaciones 98/100/100/100.
+- Capturas de escritorio y móvil servidas desde `public/evidence/`.
+- Lighthouse móvil de producción servido desde `public/evidence/` con puntuaciones 100/100/100/100.
 
 **Acciones externas restantes**
 

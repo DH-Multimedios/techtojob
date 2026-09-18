@@ -24,5 +24,3 @@ next-env.d.ts
 # planning and source material; keep final delivery documentation
 /docs/*
 !/docs/PRESENTATION_OUTLINE.md
-!/docs/evidence/
-!/docs/evidence/**

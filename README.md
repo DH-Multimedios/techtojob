@@ -43,6 +43,7 @@ content/             Stable testimonial and news identifiers/metadata
 lib/                 Typed messages, URL validation, metadata
 messages/es.json     All visible Spanish interface and editorial copy
 public/brand/        Unmodified production copies of official SVG assets
+public/evidence/     Production screenshots served by Next.js
 public/social/       Locally generated social image
 ```
 
@@ -77,6 +78,9 @@ Production builds fail with a clear error when `SITE_URL` is missing, malformed,
 This V1 has no analytics, trackers, pixels, cookies, embedded social widgets, backend, or user accounts. The newsletter demonstration:
 
 - renders no native form or action, so its button is inert without JavaScript;
+- offers monthly and weekly frequency radios, with monthly selected by default;
+- provides four optional topic interests as independent checkboxes;
+- uses the compact `Recibir novedades` activation label;
 - makes no network request;
 - uses no local or session storage;
 - sets no cookie;
@@ -93,20 +97,21 @@ SEO uses the Next.js Metadata API, canonical metadata, Open Graph, Twitter Card,
 
 ## Deployed production evidence
 
-The production audit completed at `2026-09-18T00:37:12Z` with status **PASS with non-blocking caveats** against <https://techtojob-xi.vercel.app/>.
+The production audit completed at `2026-09-18T01:42:06Z` with status **PASS** against <https://techtojob-xi.vercel.app/>. The deployed newsletter showed the compact **Recibir novedades** CTA, monthly selected by default with weekly as the alternative, and four optional interests.
 
-| Production capture | Evidence |
-|---|---|
-| Desktop, 1440 × 1000 CSS px | [Full-page PNG](docs/evidence/production-2026-09-17/desktop.png) |
-| Mobile, 390 × 844 CSS px | [Full-page PNG](docs/evidence/production-2026-09-17/mobile.png) |
-| Lighthouse 13.4.1 mobile | [Summary PNG](docs/evidence/production-2026-09-17/lighthouse-mobile.png) |
-| Audit details, checksums, and caveats | [Production evidence record](docs/evidence/production-2026-09-17/README.md) |
+The canonical capture files are served by Next.js from `public/evidence/`:
 
-Lighthouse 13.4.1 mobile scored **98 Performance, 100 Accessibility, 100 Best Practices, and 100 SEO**. It measured **1.0 s FCP, 2.0 s LCP, 3.8 s Speed Index, 42 ms TBT (40 ms display), 0 CLS, 2.0 s TTI, and 58 ms server response time**.
+| Production capture | Audited viewport | PNG dimensions | SHA-256 |
+|---|---:|---:|---|
+| [Desktop full page](https://techtojob-xi.vercel.app/evidence/desktop.png) | 1440 × 1000 CSS px | 1440 × 10466 px | `41f49263154a7a53db39a9e588b439cabe0c4e05c7a67a35da331dba5957d8da` |
+| [Mobile full page](https://techtojob-xi.vercel.app/evidence/mobile.png) | 390 × 844 CSS px | 390 × 15375 px | `9aee6dbb46cc712c6c56b4e21d44afee17603f167db61fbc9bfe561381259cd5` |
+| [Lighthouse 13.4.1 mobile summary](https://techtojob-xi.vercel.app/evidence/lighthouse-mobile.png) | 412 × 823 CSS px, DPR 1.75 | 1440 × 1000 px | `ef7c71b08af09d6a048d055f0f8a3e77f0b8ffc540e5cd2253ee0d3cde799edf` |
 
-Production checks passed for the HTTPS root and legal route; canonical, Open Graph, Twitter, JSON-LD, robots, and sitemap origins; responsive layouts at 1440 × 1000, 768 × 1024, and 390 × 844 CSS px; keyboard and focus behavior; no-JavaScript newsletter privacy; truthful testimonial reservations; reduced motion; and an isolated console/network run.
+Lighthouse 13.4.1 mobile scored **100 Performance, 100 Accessibility, 100 Best Practices, and 100 SEO**. It measured **973.016 ms FCP (1.0 s displayed), 1723.016 ms LCP (1.7 s), 1024.1227239982422 ms Speed Index (1.0 s), 7 ms TBT (10 ms displayed), 0 CLS, and 1840.716 ms TTI (1.8 s)**.
 
-LinkedIn returned status 999 under automation protection, which is not evidence of a broken destination. Two helper texts computed to approximately 11.5156 CSS px; Lighthouse Accessibility scored 100 and no standards blocker was proven, but physical-device readability remains a manual check. Raw Lighthouse JSON and HTML were retained only as temporary local audit artifacts and are not repository evidence.
+Production checks passed for the HTTPS root and legal route; canonical, Open Graph, Twitter, JSON-LD, robots, and sitemap origins; responsive layouts with no horizontal overflow at 1440, 768, and 390 CSS px; keyboard and focus behavior; no-JavaScript newsletter privacy; truthful testimonial reservations; reduced motion; and zero console errors.
+
+Lighthouse is a point-in-time synthetic measurement, so timing values can vary between runs. Automated checks do not replace physical-device, screen-reader, or 200% zoom/reflow testing. Raw Lighthouse JSON and HTML are not repository evidence.
 
 ## Local validation evidence
 
@@ -151,7 +156,7 @@ The twelve source SVGs under `docs/identity/` remain unchanged. Production copie
 
 ## Delivery status
 
-The site is live at <https://techtojob-xi.vercel.app/>, the repository is public at <https://github.com/DH-Multimedios/techtojob>, and the deployed desktop, mobile, and Lighthouse evidence is preserved in [`docs/evidence/production-2026-09-17/`](docs/evidence/production-2026-09-17/README.md).
+The site is live at <https://techtojob-xi.vercel.app/>, the repository is public at <https://github.com/DH-Multimedios/techtojob>, and the desktop, mobile, and Lighthouse evidence is stored in `public/evidence/` for delivery from the same public origin.
 
 Remaining actions require external content, authorization, or human-operated QA:
 
