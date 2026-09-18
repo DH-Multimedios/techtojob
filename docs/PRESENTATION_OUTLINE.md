@@ -1,6 +1,6 @@
 # Guion de presentación — TechToJob V1
 
-> Objetivo: presentar una decisión de producto respaldada por la implementación y por evidencia local verificable. Separar siempre el estado local de las acciones pendientes de publicación.
+> Objetivo: presentar una decisión de producto respaldada por la implementación y por evidencia verificable de producción. Sitio en vivo: <https://techtojob-xi.vercel.app/>. Repositorio público: <https://github.com/DH-Multimedios/techtojob>.
 
 ## 1. Problema y contexto
 
@@ -66,7 +66,7 @@ Las cuatro tarjetas de testimonios son provisionales. Cada una reserva de forma 
 
 **Mensaje del presentador**
 
-La dirección visual nace de la identidad de TechToJob. Las verificaciones locales no detectaron desbordamiento horizontal a 390, 768 ni 1440 píxeles CSS. `prefers-reduced-motion` elimina el desplazamiento suave y las animaciones ambientales y de revelado.
+La dirección visual nace de la identidad de TechToJob. La auditoría de producción no detectó desbordamiento horizontal en viewports de 390 × 844, 768 × 1024 ni 1440 × 1000 píxeles CSS. `prefers-reduced-motion` elimina el desplazamiento suave y las animaciones ambientales y de revelado.
 
 ## 6. Arquitectura y límites cliente-servidor
 
@@ -102,23 +102,30 @@ Tres límites gestionan interacción y foco: audiencia del hero, navegación mó
 
 Sin JavaScript no existe un formulario nativo, una acción ni un campo serializable. Con JavaScript, el correo permanece solo en memoria y no genera peticiones, almacenamiento, cookies ni logs.
 
-## 8. Evidencia local verificada
+## 8. Evidencia de producción verificada
 
 **En pantalla**
 
-| Verificación local — 17 de septiembre de 2026 | Resultado observado |
+| Auditoría de producción — 18 de septiembre de 2026 UTC | Resultado observado |
 |---|---|
-| `pnpm lint` | Correcto, sin advertencias. |
-| `pnpm typecheck` | Correcto. |
-| `git diff --check` | Correcto, sin errores de espacios. |
-| `SITE_URL=https://example.com pnpm build` | Correcto; rutas estáticas generadas. |
-| `pnpm check:newsletter-nojs` | Correcto. |
-| Chromium dirigido | Foco, copy, privacidad, responsive, movimiento reducido y consola correctos. |
-| Lighthouse 13.4.1 móvil local | Rendimiento 99 · Accesibilidad 100 · SEO 100. |
+| URL desplegada | <https://techtojob-xi.vercel.app/> |
+| Repositorio público | <https://github.com/DH-Multimedios/techtojob> |
+| Lighthouse 13.4.1 móvil | Rendimiento 98 · Accesibilidad 100 · Buenas prácticas 100 · SEO 100. |
+| Métricas principales | FCP 1,0 s · LCP 2,0 s · Speed Index 3,8 s · TBT 42 ms (40 ms mostrado) · CLS 0 · TTI 2,0 s · respuesta del servidor 58 ms. |
+| Responsive | Correcto en 1440 × 1000, 768 × 1024 y 390 × 844 píxeles CSS, sin desbordamiento horizontal. |
+| Interacción y privacidad | Teclado, foco, newsletter sin JavaScript, reservas testimoniales y movimiento reducido correctos. |
+| Consola y red aisladas | Sin errores, advertencias, peticiones fallidas ni respuestas HTTP ≥ 400. |
+
+**Capturas conservadas**
+
+- [Producción en escritorio](evidence/production-2026-09-17/desktop.png)
+- [Producción en móvil](evidence/production-2026-09-17/mobile.png)
+- [Resumen Lighthouse móvil](evidence/production-2026-09-17/lighthouse-mobile.png)
+- [Registro completo de evidencia](evidence/production-2026-09-17/README.md)
 
 **Mensaje del presentador**
 
-La ejecución local de Lighthouse registró FCP 0,8 s, LCP 2,2 s, TBT 10 ms y CLS 0. Es evidencia del build servido localmente, no del despliegue final.
+Estos resultados corresponden a la URL desplegada, no al servidor local. La auditoría tuvo resultado **aprobado con observaciones no bloqueantes**. LinkedIn respondió con estado 999 por protección frente a automatización, lo que no demuestra un destino roto. Dos textos auxiliares calcularon aproximadamente 11,5156 píxeles CSS; Lighthouse obtuvo 100 en accesibilidad y no se demostró un bloqueo normativo, pero la legibilidad aún debe validarse en un dispositivo físico.
 
 ## 9. Presupuesto JavaScript: estado honesto
 
@@ -130,7 +137,7 @@ La ejecución local de Lighthouse registró FCP 0,8 s, LCP 2,2 s, TBT 10 ms y CL
 
 **Mensaje del presentador**
 
-La cifra se obtuvo desde el HTML construido, deduplicando URLs y comprimiendo una vez cada archivo local con gzip nivel 9. No representa transferencia de producción: el hosting, la compresión y la caché deben medirse en la URL publicada. El buen Lighthouse local no convierte este presupuesto en aprobado.
+La cifra se obtuvo localmente desde el HTML construido, deduplicando URLs y comprimiendo una vez cada archivo con gzip nivel 9. No representa transferencia de producción: el hosting, la compresión y la caché requieren una medición específica. El resultado Lighthouse de producción no convierte este presupuesto interno en aprobado.
 
 ## 10. Fuentes, licencias y uso de IA
 
@@ -148,6 +155,12 @@ La implementación no atribuye testimonios, personas, empresas, métricas, datos
 
 ## 11. Demostración en vivo y entrega
 
+**Enlaces de entrega**
+
+- Sitio en vivo: <https://techtojob-xi.vercel.app/>
+- Repositorio público: <https://github.com/DH-Multimedios/techtojob>
+- Evidencia: [escritorio](evidence/production-2026-09-17/desktop.png), [móvil](evidence/production-2026-09-17/mobile.png) y [Lighthouse](evidence/production-2026-09-17/lighthouse-mobile.png).
+
 **Recorrido de demostración**
 
 1. Hero y selector de audiencia.
@@ -157,18 +170,23 @@ La implementación no atribuye testimonios, personas, empresas, métricas, datos
 5. Navegación móvil, teclado y movimiento reducido.
 6. Metadata, sitemap, robots y aviso legal provisional.
 
-**Pendiente externo antes de entregar**
+**Estado de entrega**
 
-- Subir el historial revisado y hacer público <https://github.com/DH-Multimedios/techtojob>; el repositorio permanece privado de forma intencional hasta después del push.
-- Confirmar el origen de producción, configurar `SITE_URL` y registrar la URL desplegada.
-- Capturar la versión desplegada en escritorio y móvil.
-- Ejecutar Lighthouse móvil sobre la URL desplegada y conservar su captura.
-- Completar pruebas en dispositivo físico, lector de pantalla y zoom/reflow.
-- Incorporar datos legales oficiales, testimonios autorizados y contenido editorial final cuando estén disponibles.
+- Sitio desplegado y accesible mediante HTTPS.
+- Repositorio público disponible.
+- Capturas de escritorio y móvil conservadas en el repositorio.
+- Lighthouse móvil de producción conservado con puntuaciones 98/100/100/100.
+
+**Acciones externas restantes**
+
+- Completar pruebas en dispositivo físico, lector de pantalla y zoom/reflow al 200 %.
+- Incorporar datos oficiales del titular legal.
+- Sustituir las reservas provisionales por testimonios reales, autorizados y verificables.
+- Aprobar las fechas y los destinos finales de noticias.
 
 **Mensaje del presentador**
 
-No mostrar como evidencia de producción una captura local, una URL de ejemplo ni una puntuación anterior al despliegue. El README y las pruebas locales ya están preparados; visibilidad, URL y capturas dependen de la publicación controlada por la persona propietaria.
+Abrir la URL en vivo y recorrer el producto en el orden indicado. Si la red del recinto no está disponible, utilizar las capturas conservadas como respaldo y aclarar que pertenecen a la auditoría de producción. No presentar las mediciones locales —Lighthouse 99/100/100, FCP 0,8 s, LCP 2,2 s, TBT 10 ms y CLS 0— como resultados del despliegue; se mantienen únicamente como evidencia de desarrollo.
 
 ## 12. Cierre
 
