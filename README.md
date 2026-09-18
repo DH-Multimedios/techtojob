@@ -33,9 +33,9 @@ The application uses Next.js App Router, TypeScript, Tailwind CSS v4, and React 
 ```text
 app/                 Routes, global styles, metadata routes
 components/layout/   Header and footer
-components/sections/ Server-rendered landing sections
+components/sections/ Landing sections and progressive reveal boundaries
 components/interactive/
-                     Hero tabs, mobile navigation, newsletter demo
+                     Hero audience controls, mobile navigation, newsletter demo
 components/ui/       Small shared presentation primitives
 content/             Stable testimonial and news identifiers/metadata
 lib/                 Typed messages, URL validation, metadata
@@ -44,13 +44,12 @@ public/brand/        Unmodified production copies of official SVG assets
 public/social/       Locally generated social image
 ```
 
-Only three components opt into client JavaScript:
+Eleven components currently opt into client JavaScript, for two bounded reasons:
 
-- `HeroTabs` implements the accessible tab pattern and keeps both panels in server-rendered HTML.
-- `MobileNavigation` manages disclosure, Escape handling, and focus.
-- `NewsletterDemoForm` validates and reports state locally.
+- `AudienceRadialMenu`, `MobileNavigation`, and `NewsletterDemoForm` manage explicit interaction state and focus.
+- `PositioningSection`, `HowItWorksSection`, `TalentSection`, `CompaniesSection`, `TournamentsSection`, `NetworkingSection`, `TestimonialsSection`, and `NewsSection` use `IntersectionObserver` for progressive reveals and disable that behavior when reduced motion is requested.
 
-All content sections, navigation destinations, metadata, JSON-LD, sitemap, and robots output are generated on the server or statically.
+The routes are statically prerendered, and the core copy remains present without waiting for an observer animation. Navigation destinations, metadata, JSON-LD, sitemap, and robots output are generated at build time. The skip-link targets remain server-rendered and use native fragment navigation with focusable `main` landmarks; no extra client boundary is required.
 
 ## Content model
 
@@ -86,17 +85,31 @@ Discord and social links are explicit outbound navigation to third-party service
 
 ## Accessibility and SEO
 
-The implementation includes semantic landmarks, one H1, ordered headings, a skip link, visible focus, keyboard-operable tabs, Escape handling for mobile navigation, associated form help/errors, an `aria-live` success state, minimum control sizing, and reduced-motion handling.
+The implementation includes semantic landmarks, one H1, ordered headings, focus-correct skip links, visible focus, keyboard-operable audience disclosures, Escape handling for mobile navigation, associated field help/errors, focused status feedback after the newsletter demonstration, minimum control sizing, and reduced-motion handling.
 
 SEO uses the Next.js Metadata API, canonical metadata, Open Graph, Twitter Card, Organization JSON-LD, sitemap, and robots output. The social image is 1200 × 630. The legal route is marked `noindex`, remains linked from the footer, and is excluded from the sitemap until official data is supplied.
 
-These are implementation features, not measured scores. Lighthouse, screen-reader checks, browser checks, 200% zoom/reflow, and physical-device testing must be performed and recorded before publication.
+On September 17, 2026, the local production build passed lint, TypeScript, the no-JavaScript newsletter invariant, and targeted Chromium checks. The browser checks covered skip-link and newsletter focus, visible testimonial photo placeholders, visible newsletter benefit text, reduced motion, zero horizontal overflow at 1440, 768, and 390 CSS pixels, and zero console errors. A local Lighthouse 13.4.1 mobile run scored **99 Performance, 100 Accessibility, and 100 SEO**, with 0.8 s FCP, 2.2 s LCP, 10 ms TBT, and 0 CLS.
+
+These are local build results, not deployed-site evidence. Screen-reader checks, 200% zoom/reflow, browser coverage beyond Chromium, physical-device testing, and a Lighthouse capture of the deployed production URL remain publication QA.
+
+### Local validation snapshot
+
+| Command or check | Observed result |
+|---|---|
+| `pnpm lint` | Passed with zero warnings. |
+| `pnpm typecheck` | Passed without emitted files. |
+| `git diff --check` | Passed with no whitespace errors. |
+| `SITE_URL=https://example.com pnpm build` | Passed; `/`, `/aviso-legal`, `/robots.txt`, and `/sitemap.xml` were statically generated. |
+| `pnpm check:newsletter-nojs` | Passed; no native form action or serializable email field. |
+| Targeted Chromium runtime checks | Passed for the documented focus, copy, privacy, responsive overflow, reduced-motion, and console-error scenarios. |
+| Lighthouse 13.4.1 mobile, local production server | 99 Performance, 100 Accessibility, 100 SEO. |
 
 ## JavaScript budget evidence
 
-The current production home page references approximately **175.6 KiB gzip** of initial JavaScript when each unique linked script is compressed locally with gzip level 9. This exceeds the V1 engineering target of 100 KB and is therefore an open review optimization target, not a passed budget.
+The current built home page references **183.5 KiB gzip** across eight unique initial JavaScript files. This was measured locally after the final readiness changes by extracting unique initial script URLs from `.next/server/app/index.html` and compressing each referenced file once with gzip level 9 (`187,914` total bytes).
 
-The linked JavaScript is primarily Next.js, React, router/runtime, and framework polyfill code. Restoring the brief-required `next/image` behavior for official SVGs increased the same local estimate from the previously recorded 169.9 KiB to 175.6 KiB. A local production mobile Lighthouse run after that change scored 99 for Performance, 100 for Accessibility, and 100 for SEO, with 2.1 s LCP, 0 layout shift, and 0 ms total blocking time. Transfer size can vary with server compression, so deployment tooling and Lighthouse must measure the published site before delivery.
+This exceeds the V1 engineering target of 100 KB and remains an honest optimization limitation, not a passed budget. It is a reproducible local artifact estimate, **not** a claim about deployment transfer size; hosting compression, caching, and the published URL must be measured separately.
 
 ## Asset and source register
 
@@ -115,17 +128,19 @@ No stock photography or third-party icon package is included. The interface uses
 
 The twelve source SVGs under `docs/identity/` remain unchanged. Production copies preserve their original internal colors, including `#303436` in the positive variants.
 
-## Pending publication inputs
+## Publication handoff
 
-The implementation is review-ready, but publication is blocked or constrained by real missing inputs:
+The local repository is ready for the owner-controlled publication sequence. The intended repository URL is <https://github.com/DH-Multimedios/techtojob>; it is intentionally private until after the push.
 
-- confirm the production domain and configure `SITE_URL`;
-- provide and review official legal-holder data for `/aviso-legal`;
-- replace provisional testimonial cards with authorized, verifiable testimonials;
-- approve or replace sample news entries with real dates and destinations;
-- select and document photography if the final art direction requires it;
-- verify official outbound links during publication QA;
-- run and preserve responsive, keyboard, screen-reader, no-JS, browser, physical-device, metadata, link, and Lighthouse evidence.
+The following are final publication actions and are not represented as completed local evidence:
+
+- push the reviewed commit history, then make the repository public;
+- confirm the production origin, set the production `SITE_URL`, and record the deployed URL;
+- capture the deployed desktop and mobile views;
+- run mobile Lighthouse against the deployed URL and preserve its screenshot;
+- complete physical-device, screen-reader, zoom/reflow, metadata, and outbound-link QA on the published site.
+
+Real content inputs also remain explicit: official legal-holder data for `/aviso-legal`, authorized and verifiable testimonials, and approved final news dates/destinations. The four provisional testimonial cards reserve truthful photo and profile spaces without presenting invented people or portraits. Any future photography must be licensed and added to the source register before use.
 
 ## AI-use declaration
 

@@ -27,7 +27,7 @@ export default function LegalNoticePage() {
         {messages.navigation.skipLink}
       </a>
       <SiteHeader sectionHrefPrefix="/" />
-      <main id="legal-content" className="legal-page">
+      <main id="legal-content" className="legal-page" tabIndex={-1}>
         <div className="shell legal-page__inner">
           <p className="eyebrow">{legal.eyebrow}</p>
           <h1>{legal.heading}</h1>

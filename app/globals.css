@@ -147,6 +147,12 @@ h3 {
   translate: 0;
 }
 
+#main-content:focus,
+#legal-content:focus {
+  outline: none;
+  box-shadow: none !important;
+}
+
 .eyebrow,
 .hero-context {
   margin-bottom: 1rem;
@@ -2206,7 +2212,7 @@ h3 {
 }
 
 .testimonial-grid[data-testimonial-state="ready"]
-  :is(.sample-badge, blockquote) {
+  :is(.sample-badge, .testimonial-card__photo, blockquote) {
   opacity: 0;
   transform: translate3d(0, 0.25rem, 0);
 }
@@ -2219,6 +2225,11 @@ h3 {
 .testimonial-grid[data-testimonial-state="visible"] .sample-badge {
   animation: testimonial-content-reveal 380ms cubic-bezier(0.22, 1, 0.36, 1)
     calc(var(--testimonial-delay) + 90ms) backwards;
+}
+
+.testimonial-grid[data-testimonial-state="visible"] .testimonial-card__photo {
+  animation: testimonial-content-reveal 420ms cubic-bezier(0.22, 1, 0.36, 1)
+    calc(var(--testimonial-delay) + 115ms) backwards;
 }
 
 .testimonial-grid[data-testimonial-state="visible"] blockquote {
@@ -2262,6 +2273,59 @@ h3 {
   letter-spacing: 0.08em;
   line-height: 1.2;
   text-transform: uppercase;
+}
+
+.testimonial-card__photo {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  min-height: 7rem;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 0.9rem;
+  border: 1px dashed rgb(132 192 191 / 0.55);
+  border-radius: 0.75rem;
+  background:
+    linear-gradient(145deg, rgb(132 192 191 / 0.12), transparent 58%),
+    rgb(255 255 255 / 0.025);
+  color: #bdc7c6;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.testimonial-card__photo::after {
+  position: absolute;
+  right: -2.5rem;
+  bottom: -4.5rem;
+  width: 9rem;
+  height: 9rem;
+  border: 1px solid rgb(132 192 191 / 0.2);
+  border-radius: 50% 50% 50% 0;
+  content: "";
+  rotate: 18deg;
+}
+
+.testimonial-card__photo-mark {
+  position: relative;
+  z-index: 1;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: 0 0 auto;
+  border: 0.7rem solid var(--mint);
+  border-radius: 50% 50% 50% 0;
+  background: var(--ink);
+  opacity: 0.85;
+}
+
+.testimonial-card__photo > span:last-child {
+  position: relative;
+  z-index: 1;
+  text-align: right;
 }
 
 .testimonial-card blockquote {
@@ -2638,8 +2702,10 @@ h3 {
 .newsletter-form__row {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 3.5rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.35rem;
   min-width: 0;
+  padding: 0.35rem;
   border: 1px solid #879193;
   border-radius: 0.75rem;
   background: var(--paper);
@@ -2652,9 +2718,9 @@ h3 {
   width: 100%;
   min-width: 0;
   min-height: 4rem;
-  padding: 0.85rem 2.5rem 0.85rem 1rem;
+  padding: 0.85rem 1rem;
   border: 0;
-  border-radius: 0.75rem 0 0 0.75rem;
+  border-radius: 0.55rem;
   background: transparent;
   color: var(--ink);
 }
@@ -2677,11 +2743,9 @@ h3 {
 
 .newsletter-form__submit {
   align-self: center;
-  justify-self: end;
-  width: 2.75rem;
+  width: 100%;
   min-height: 2.75rem;
-  margin-right: 0.35rem;
-  padding: 0;
+  padding: 0.75rem 1rem;
   border-radius: 0.6rem;
 }
 
@@ -2725,6 +2789,11 @@ h3 {
 
 .newsletter-success {
   min-height: 13rem;
+}
+
+.newsletter-success:focus {
+  outline: none;
+  box-shadow: none !important;
 }
 
 .newsletter-success__mark {
@@ -2946,6 +3015,14 @@ h3 {
 @media (min-width: 40rem) {
   .shell {
     width: min(100% - 3rem, 74rem);
+  }
+
+  .newsletter-form__row {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .newsletter-form__submit {
+    width: auto;
   }
 
   .audience-radial-menu {
@@ -3487,7 +3564,7 @@ h3 {
 
   .testimonial-grid[data-testimonial-state] .testimonial-card,
   .testimonial-grid[data-testimonial-state]
-    :is(.sample-badge, blockquote) {
+    :is(.sample-badge, .testimonial-card__photo, blockquote) {
     opacity: 1;
     transform: none;
     animation: none !important;

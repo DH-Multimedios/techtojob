@@ -22,7 +22,7 @@ export default function HomePage() {
         {messages.navigation.skipLink}
       </a>
       <SiteHeader />
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1}>
         <HeroSection />
         <PositioningSection />
         <HowItWorksSection />

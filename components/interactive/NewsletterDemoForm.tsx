@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, type KeyboardEvent } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 
 import { ArrowIcon } from "@/components/ui/ArrowIcon";
 
@@ -27,6 +27,13 @@ export function NewsletterDemoForm({
   const [error, setError] = useState("");
   const [isComplete, setIsComplete] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const successRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (isComplete) {
+      successRef.current?.focus();
+    }
+  }, [isComplete]);
 
   function activateDemo() {
     const input = inputRef.current;
@@ -56,7 +63,13 @@ export function NewsletterDemoForm({
 
   if (isComplete) {
     return (
-      <div className="newsletter-success" role="status" aria-live="polite">
+      <div
+        ref={successRef}
+        className="newsletter-success"
+        role="status"
+        aria-live="polite"
+        tabIndex={-1}
+      >
         <span aria-hidden="true" className="newsletter-success__mark">
           ✓
         </span>
@@ -105,10 +118,9 @@ export function NewsletterDemoForm({
         <button
           className="button button--dark newsletter-form__submit"
           type="button"
-          aria-label={submitLabel}
-          title={submitLabel}
           onClick={activateDemo}
         >
+          <span>{submitLabel}</span>
           <ArrowIcon />
         </button>
       </div>

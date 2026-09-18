@@ -85,6 +85,10 @@ export function TestimonialsSection() {
                 }
               >
                 <span className="sample-badge">{copy.sampleLabel}</span>
+                <div className="testimonial-card__photo">
+                  <span className="testimonial-card__photo-mark" aria-hidden="true" />
+                  <span>{copy.photoPlaceholder}</span>
+                </div>
                 <blockquote>“{item.quote}”</blockquote>
                 <div>
                   <h3>{item.name}</h3>

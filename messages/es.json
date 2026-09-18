@@ -128,6 +128,7 @@
     "heading": "Lo que cuente la comunidad irá aquí.",
     "transparency": "Estas tarjetas son provisionales para mostrar la estructura de la V1. Antes de publicar, se sustituirán por testimonios reales, autorizados y verificables.",
     "sampleLabel": "Muestra provisional",
+    "photoPlaceholder": "Foto pendiente",
     "profileLinkLabel": "Ver perfil verificado",
     "items": {
       "pending-01": { "name": "Testimonio pendiente 01", "quote": "Contenido pendiente de una persona real de la comunidad.", "profile": "Perfil pendiente" },
